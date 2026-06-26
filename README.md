@@ -1,6 +1,5 @@
 # 3D Portfolio — Kashyap Patel
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/.../deploy-status)](https://portfolio-kashyap.netlify.app)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
 Interactive 3D portfolio website built with **React 18**, **Three.js** (React Three Fiber), and **Vite**. Features a particle field hero, floating 3D geometries, dark/light theme toggle, scroll-triggered animations, and a contact form powered by Web3Forms.
@@ -70,10 +69,8 @@ portfolio/
 ├── index.html                     # Entry HTML
 ├── package.json
 ├── vite.config.js                 # Vite config, manual chunks
-├── netlify.toml                   # Netlify build & redirects config
 ├── LICENSE
 ├── public/
-│   ├── _redirects                 # Static SPA redirects for Netlify
 │   ├── favicon.svg
 │   └── images/                    # Project screenshots
 │       ├── todo-app.png
@@ -194,16 +191,6 @@ Replace the Web3Forms `access_key` in `src/components/Contact.jsx:31` with your 
 ---
 
 ## Deployment
-
-### Netlify (Recommended)
-
-1. Push to GitHub
-2. Import repo in [Netlify](https://app.netlify.com/)
-3. Build and deploy settings are auto-detected from `netlify.toml`:
-   - Build command: `npm run build`
-   - Publish directory: `dist`
-
-Netlify auto-deploys on every push to the main branch.
 
 ### GitHub Pages
 
