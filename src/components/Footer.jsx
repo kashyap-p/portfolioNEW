@@ -23,10 +23,10 @@ export default function Footer() {
             display: 'flex', gap: 10
           }}>
             {[
-              { icon: FiGithub, href: 'https://github.com/kashyap-p' },
-              { icon: FiLinkedin, href: 'https://linkedin.com/in/kashyap-p' },
-            ].map(({ icon: Icon, href }, i) => (
-              <a key={i} href={href} style={{
+              { icon: FiGithub, href: 'https://github.com/kashyap-p', label: 'GitHub' },
+              { icon: FiLinkedin, href: 'https://linkedin.com/in/kashyap-p', label: 'LinkedIn' },
+            ].map(({ icon: Icon, href, label }) => (
+              <a key={label} href={href} aria-label={label} style={{
                 width: 36, height: 36, borderRadius: 8,
                 background: 'var(--bg-card)',
                 border: '1px solid var(--border)',

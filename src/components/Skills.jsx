@@ -167,7 +167,7 @@ export default function Skills() {
           overflow: 'hidden',
           opacity: inView ? 1 : 0,
           transition: 'opacity 0.8s ease 0.2s'
-        }}>
+        }} aria-hidden="true">
           <Canvas camera={{ position: [0, 0, 7], fov: 50 }}>
             <Suspense fallback={null}>
               <SkillsScene />

@@ -81,7 +81,7 @@ export default function About() {
             opacity: inView ? 1 : 0,
             transform: inView ? 'translateX(0)' : 'translateX(-40px)',
             transition: 'all 0.8s cubic-bezier(0.4, 0, 0.2, 1)'
-          }}>
+          }} aria-hidden="true">
             <Canvas camera={{ position: [0, 0, 5], fov: 50 }}>
               <Suspense fallback={null}>
                 <AboutScene />

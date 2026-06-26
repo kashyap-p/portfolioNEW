@@ -1,4 +1,4 @@
-import { useState, useCallback } from 'react'
+import { useState, useCallback, useRef } from 'react'
 import { useInView } from 'react-intersection-observer'
 import { FiMail, FiMapPin, FiSend, FiGithub, FiLinkedin } from 'react-icons/fi'
 
@@ -19,6 +19,9 @@ export default function Contact() {
     setFormData(prev => ({ ...prev, [e.target.name]: e.target.value }))
   }, [])
 
+  const formRef = useRef(formData)
+  formRef.current = formData
+
   const handleSubmit = useCallback(async (e) => {
     e.preventDefault()
     setSending(true)
@@ -29,7 +32,7 @@ export default function Contact() {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           access_key: '48fc05b3-d160-459a-8877-cc4defe8c317',
-          ...formData
+          ...formRef.current
         })
       })
       if (!res.ok) throw new Error('Submission failed')
@@ -42,7 +45,7 @@ export default function Contact() {
     } finally {
       setSending(false)
     }
-  }, [formData])
+  }, [])
 
   const inputStyle = useCallback((field) => ({
     width: '100%', padding: '14px 18px',
@@ -179,14 +182,14 @@ export default function Contact() {
           }}>
             <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
               <input
-                type="text" name="name" placeholder="Your Name"
+                type="text" name="name" placeholder="Your Name" aria-label="Your Name"
                 value={formData.name} onChange={handleChange}
                 onFocus={() => setFocused('name')} onBlur={() => setFocused(null)}
                 style={inputStyle('name')}
                 required
               />
               <input
-                type="email" name="email" placeholder="Your Email"
+                type="email" name="email" placeholder="Your Email" aria-label="Your Email"
                 value={formData.email} onChange={handleChange}
                 onFocus={() => setFocused('email')} onBlur={() => setFocused(null)}
                 style={inputStyle('email')}
@@ -194,20 +197,20 @@ export default function Contact() {
               />
             </div>
             <input
-              type="text" name="subject" placeholder="Subject"
+              type="text" name="subject" placeholder="Subject" aria-label="Subject"
               value={formData.subject} onChange={handleChange}
               onFocus={() => setFocused('subject')} onBlur={() => setFocused(null)}
               style={inputStyle('subject')}
             />
             <textarea
-              name="message" placeholder="Your Message" rows={5}
+              name="message" placeholder="Your Message" rows={5} aria-label="Your Message"
               value={formData.message} onChange={handleChange}
               onFocus={() => setFocused('message')} onBlur={() => setFocused(null)}
               style={inputStyle('message')}
               required
             />
             {submitted && (
-              <div style={{
+              <div role="alert" style={{
                 padding: '14px 18px', borderRadius: 12,
                 background: 'rgba(34, 197, 94, 0.1)',
                 border: '1px solid rgba(34, 197, 94, 0.2)',
@@ -218,7 +221,7 @@ export default function Contact() {
               </div>
             )}
             {error && (
-              <div style={{
+              <div role="alert" style={{
                 padding: '14px 18px', borderRadius: 12,
                 background: 'rgba(239, 68, 68, 0.1)',
                 border: '1px solid rgba(239, 68, 68, 0.2)',

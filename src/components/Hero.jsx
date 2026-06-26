@@ -7,7 +7,7 @@ const NAV_HEIGHT = 72
 
 const ParticleField = memo(function ParticleField() {
   const mesh = useRef()
-  const count = 800
+  const count = 500
 
   const { positions, colors } = useMemo(() => {
     const pos = new Float32Array(count * 3)
@@ -87,7 +87,7 @@ const RotatingTorusKnot = memo(function RotatingTorusKnot() {
   return (
     <Float speed={1} rotationIntensity={0.5} floatIntensity={1}>
       <mesh ref={mesh} position={[0, 0, -4]}>
-        <torusKnotGeometry args={[1.5, 0.4, 100, 24, 2, 3]} />
+        <torusKnotGeometry args={[1.5, 0.4, 48, 12, 2, 3]} />
         <meshStandardMaterial
           color="#6366f1" emissive="#4f46e5" emissiveIntensity={0.4}
           wireframe transparent opacity={0.2}
@@ -196,7 +196,7 @@ export default function Hero() {
       overflow: 'hidden'
     }}>
       {/* 3D Background — fills entire 100vh behind navbar */}
-      <div style={{ position: 'absolute', inset: 0, zIndex: 0 }}>
+      <div style={{ position: 'absolute', inset: 0, zIndex: 0 }} aria-hidden="true">
         <CanvasBoundary>
           <ThreeCanvas />
         </CanvasBoundary>

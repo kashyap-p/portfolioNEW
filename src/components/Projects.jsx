@@ -1,6 +1,6 @@
 import { useRef, useCallback, useState } from 'react'
 import { useInView } from 'react-intersection-observer'
-import { FiExternalLink, FiGithub, FiArrowRight } from 'react-icons/fi'
+import { FiExternalLink, FiGithub } from 'react-icons/fi'
 
 const BASE = import.meta.env.BASE_URL || '/'
 
@@ -53,18 +53,7 @@ const projects = [
     image: `${BASE}images/alarm-clock.png`,
     featured: false,
   },
-  {
-    title: 'React Task Management',
-    desc: 'A task management app built with React featuring priority-based lists, task categorization, and a clean responsive UI.',
-    tech: ['React', 'CSS', 'JavaScript'],
-    color: '#10b981',
-    gradient: 'linear-gradient(135deg, #10b981, #059669)',
-    stats: { stars: 0, forks: 0 },
-    github: 'https://github.com/kashyap-p/React-task-management',
-    href: '',
-    image: '',
-    featured: false,
-  },
+
 ]
 
 function ProjectCard({ project, index, inView }) {
@@ -285,16 +274,7 @@ export default function Projects() {
               A selection of projects that showcase my skills and passion
             </p>
           </div>
-          <a href="#" style={{
-            display: 'flex', alignItems: 'center', gap: 6,
-            color: '#6366f1', fontSize: '0.9rem', fontWeight: 500,
-            transition: 'gap 0.3s'
-          }}
-          onMouseEnter={e => e.currentTarget.style.gap = '10px'}
-          onMouseLeave={e => e.currentTarget.style.gap = '6px'}
-          >
-            View All <FiArrowRight />
-          </a>
+
         </div>
 
         <div style={{
