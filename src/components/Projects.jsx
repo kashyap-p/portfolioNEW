@@ -2,6 +2,8 @@ import { useRef, useCallback, useState } from 'react'
 import { useInView } from 'react-intersection-observer'
 import { FiExternalLink, FiGithub, FiArrowRight } from 'react-icons/fi'
 
+const BASE = import.meta.env.BASE_URL || '/'
+
 const projects = [
   {
     title: 'Todo App',
@@ -12,7 +14,7 @@ const projects = [
     stats: { stars: 0, forks: 0 },
     github: 'https://github.com/kashyap-p/todo-app',
     href: 'https://kashyap-p.github.io/todo-app/',
-    image: '/images/todo-app.png',
+    image: `${BASE}images/todo-app.png`,
     featured: true,
   },
   {
@@ -24,7 +26,7 @@ const projects = [
     stats: { stars: 0, forks: 0 },
     github: 'https://github.com/kashyap-p/tech-news',
     href: 'https://kashyap-p.github.io/tech-news/',
-    image: '/images/tech-news.png',
+    image: `${BASE}images/tech-news.png`,
     featured: true,
   },
   {
@@ -36,7 +38,7 @@ const projects = [
     stats: { stars: 0, forks: 0 },
     github: 'https://github.com/kashyap-p/IMDB_CLONE',
     href: 'https://kashyap-p.github.io/IMDB_CLONE/',
-    image: '/images/imdb-clone.png',
+    image: `${BASE}images/imdb-clone.png`,
     featured: true,
   },
   {
@@ -48,7 +50,7 @@ const projects = [
     stats: { stars: 0, forks: 0 },
     github: 'https://github.com/kashyap-p/ALARM-CLOCK',
     href: 'https://kashyap-p.github.io/ALARM-CLOCK/',
-    image: '/images/alarm-clock.png',
+    image: `${BASE}images/alarm-clock.png`,
     featured: false,
   },
   {
