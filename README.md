@@ -1,7 +1,7 @@
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=2&height=200&section=header&text=Kashyap%20Patel&fontSize=60&fontAlignY=35&desc=Full-Stack%20Developer%20%7C%20Portfolio&descAlignY=52&fontColor=fff">
-    <img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=2&height=200&section=header&text=Kashyap%20Patel&fontSize=60&fontAlignY=35&desc=Full-Stack%20Developer%20%7C%20Portfolio&descAlignY=52&fontColor=111">
+    <source media="(prefers-color-scheme: dark)" srcset="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=2&height=220&section=header&text=Kashyap%20Patel&fontSize=55&fontAlignY=30&desc=Full-Stack%20Developer%20%7C%20Portfolio&descAlignY=60&fontColor=fff">
+    <img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=2&height=220&section=header&text=Kashyap%20Patel&fontSize=55&fontAlignY=30&desc=Full-Stack%20Developer%20%7C%20Portfolio&descAlignY=60&fontColor=111">
   </picture>
 </p>
 
