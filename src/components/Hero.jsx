@@ -164,7 +164,7 @@ const Stats = memo(function Stats() {
             background: 'linear-gradient(135deg, #6366f1, #a855f7)',
             WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent'
           }}>{s.num}</div>
-          <div style={{ fontSize: '0.85rem', color: '#71717a' }}>{s.label}</div>
+          <div style={{ fontSize: '0.85rem', color: 'var(--color-text-tertiary)' }}>{s.label}</div>
         </div>
       ))}
     </div>
@@ -185,7 +185,7 @@ export default function Hero() {
     e.currentTarget.style.background = 'rgba(99,102,241,0.05)'
   }, [])
   const handleSecondaryLeave = useCallback((e) => {
-    e.currentTarget.style.borderColor = 'rgba(255,255,255,0.15)'
+    e.currentTarget.style.borderColor = 'var(--border)'
     e.currentTarget.style.background = 'transparent'
   }, [])
 
@@ -205,7 +205,7 @@ export default function Hero() {
       {/* Gradient overlay */}
       <div style={{
         position: 'absolute', inset: 0, zIndex: 1,
-        background: 'radial-gradient(ellipse at center, transparent 0%, rgba(10,10,15,0.6) 70%, rgba(10,10,15,0.95) 100%)'
+        background: 'var(--hero-overlay)'
       }} />
 
       {/* Content */}
@@ -243,7 +243,7 @@ export default function Hero() {
           }}>
             <span style={{
               fontSize: 'clamp(1rem, 2vw, 1.5rem)',
-              fontWeight: 400, color: '#a1a1aa',
+              fontWeight: 400, color: 'var(--color-text-secondary)',
               display: 'block', marginBottom: '0.5rem',
               fontFamily: "'Inter', sans-serif"
             }}>
@@ -261,7 +261,7 @@ export default function Hero() {
           </h1>
 
           <p style={{
-            fontSize: '1.15rem', color: '#a1a1aa',
+            fontSize: '1.15rem', color: 'var(--color-text-secondary)',
             lineHeight: 1.7, marginBottom: '2.5rem', maxWidth: 520
           }}>
             Full-stack developer crafting performant web applications
@@ -286,8 +286,8 @@ export default function Hero() {
             <a href="#contact" style={{
               padding: '14px 32px', borderRadius: 12,
               background: 'transparent',
-              border: '1px solid rgba(255,255,255,0.15)',
-              color: '#e4e4e7', fontWeight: 500, fontSize: '1rem',
+              border: '1px solid var(--border)',
+              color: 'var(--color-text)', fontWeight: 500, fontSize: '1rem',
               transition: 'all 0.3s', cursor: 'pointer'
             }}
             onMouseEnter={handleSecondaryEnter}

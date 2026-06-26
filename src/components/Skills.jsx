@@ -108,7 +108,7 @@ function SkillBar({ skill, color, delay, inView }) {
       }}>
         <div style={{
           display: 'flex', alignItems: 'center', gap: 8,
-          color: '#e4e4e7', fontSize: '0.9rem'
+          color: 'var(--color-text)', fontSize: '0.9rem'
         }}>
           <skill.icon size={16} color={color} />
           {skill.name}
@@ -122,7 +122,7 @@ function SkillBar({ skill, color, delay, inView }) {
       </div>
       <div style={{
         height: 6, borderRadius: 3,
-        background: 'rgba(255,255,255,0.06)',
+        background: 'var(--border)',
         overflow: 'hidden'
       }}>
         <div style={{
@@ -143,7 +143,7 @@ export default function Skills() {
   return (
     <section id="skills" ref={ref} style={{
       padding: '120px 0', position: 'relative',
-      background: '#0a0a0f'
+      background: 'var(--color-bg)'
     }}>
       <div className="section-container">
         <div style={{
@@ -162,8 +162,8 @@ export default function Skills() {
         {/* 3D Visualization */}
         <div style={{
           height: 350, borderRadius: 20, marginBottom: '3rem',
-          background: 'rgba(255,255,255,0.02)',
-          border: '1px solid rgba(255,255,255,0.06)',
+          background: 'var(--bg-card)',
+          border: '1px solid var(--border)',
           overflow: 'hidden',
           opacity: inView ? 1 : 0,
           transition: 'opacity 0.8s ease 0.2s'
@@ -183,8 +183,8 @@ export default function Skills() {
           {skillCategories.map((cat, catIdx) => (
             <div key={cat.title} style={{
               padding: '24px', borderRadius: 16,
-              background: 'rgba(255,255,255,0.03)',
-              border: '1px solid rgba(255,255,255,0.06)',
+              background: 'var(--bg-card)',
+              border: '1px solid var(--border)',
               opacity: inView ? 1 : 0,
               transform: inView ? 'translateY(0)' : 'translateY(20px)',
               transition: `all 0.6s ease ${0.3 + catIdx * 0.15}s`

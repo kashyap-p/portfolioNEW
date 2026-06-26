@@ -1,5 +1,6 @@
 import { useState, useEffect, useCallback } from 'react'
-import { FiMenu, FiX } from 'react-icons/fi'
+import { FiMenu, FiX, FiSun, FiMoon } from 'react-icons/fi'
+import { useTheme } from '../context/ThemeContext'
 
 const NAV_HEIGHT = 72
 
@@ -14,6 +15,7 @@ const navLinks = [
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false)
   const [mobileOpen, setMobileOpen] = useState(false)
+  const { theme, toggleTheme } = useTheme()
 
   useEffect(() => {
     let ticking = false
@@ -36,11 +38,11 @@ export default function Navbar() {
     <nav style={{
       position: 'fixed', top: 0, left: 0, right: 0, zIndex: 1000,
       height: NAV_HEIGHT, padding: '0 24px',
-      background: scrolled ? 'rgba(10, 10, 15, 0.92)' : 'rgba(10, 10, 15, 0.6)',
+      background: scrolled ? 'var(--bg-nav-scrolled)' : 'var(--bg-nav)',
       backdropFilter: 'blur(12px) saturate(150%)',
       WebkitBackdropFilter: 'blur(12px) saturate(150%)',
-      borderBottom: scrolled ? '1px solid rgba(255,255,255,0.06)' : '1px solid rgba(255,255,255,0.04)',
-      transition: 'background 0.4s ease, backdrop-filter 0.4s ease, border-color 0.4s ease',
+      borderBottom: scrolled ? '1px solid var(--border)' : '1px solid rgba(255,255,255,0.04)',
+      transition: 'background 0.3s ease, backdrop-filter 0.4s ease, border-color 0.4s ease',
       willChange: 'background, backdrop-filter'
     }}>
       <div style={{
@@ -64,12 +66,24 @@ export default function Navbar() {
         }} className="desktop-nav">
           {navLinks.map(link => (
             <a key={link.name} href={link.href} className="nav-link" style={{
-              fontSize: '0.9rem', color: '#a1a1aa',
+              fontSize: '0.9rem', color: 'var(--color-text-secondary)',
               transition: 'color 0.3s', position: 'relative'
             }}>
               {link.name}
             </a>
           ))}
+          <button onClick={toggleTheme} style={{
+            background: 'none', border: '1px solid var(--border)',
+            color: 'var(--color-text-secondary)', cursor: 'pointer',
+            padding: '8px', borderRadius: 8, lineHeight: 1,
+            display: 'flex', alignItems: 'center',
+            transition: 'all 0.3s', fontSize: '1.1rem'
+          }}
+          onMouseEnter={e => { e.currentTarget.style.borderColor = 'var(--color-accent)'; e.currentTarget.style.color = 'var(--color-accent)' }}
+          onMouseLeave={e => { e.currentTarget.style.borderColor = 'var(--border)'; e.currentTarget.style.color = 'var(--color-text-secondary)' }}
+          aria-label="Toggle theme">
+            {theme === 'dark' ? <FiSun /> : <FiMoon />}
+          </button>
           <a href="#contact" className="nav-cta" style={{
             padding: '10px 24px', borderRadius: '8px',
             background: 'linear-gradient(135deg, #6366f1, #a855f7)',
@@ -88,7 +102,7 @@ export default function Navbar() {
           aria-label="Toggle menu"
           style={{
             display: 'none', background: 'none', border: 'none',
-            color: '#e4e4e7', fontSize: '1.5rem', cursor: 'pointer',
+            color: 'var(--color-text)', fontSize: '1.5rem', cursor: 'pointer',
             padding: 8, lineHeight: 1, flexShrink: 0
           }}
         >
@@ -101,12 +115,12 @@ export default function Navbar() {
         className="mobile-menu"
         style={{
           position: 'absolute', top: NAV_HEIGHT, left: 0, right: 0,
-          background: 'rgba(10, 10, 15, 0.97)', backdropFilter: 'blur(20px)',
+          background: 'var(--bg-mobile)', backdropFilter: 'blur(20px)',
           WebkitBackdropFilter: 'blur(20px)',
           padding: mobileOpen ? '24px' : '0 24px',
           maxHeight: mobileOpen ? '400px' : '0',
           overflow: 'hidden',
-          borderBottom: mobileOpen ? '1px solid rgba(255,255,255,0.06)' : 'none',
+          borderBottom: mobileOpen ? '1px solid var(--border)' : 'none',
           transition: 'max-height 0.35s ease, padding 0.35s ease',
           display: 'flex', flexDirection: 'column', gap: '4px'
         }}
@@ -116,8 +130,8 @@ export default function Navbar() {
             onClick={closeMobile}
             className="nav-link"
             style={{
-              fontSize: '1rem', color: '#a1a1aa', padding: '10px 0',
-              transition: 'color 0.3s', borderBottom: '1px solid rgba(255,255,255,0.04)'
+              fontSize: '1rem', color: 'var(--color-text-secondary)', padding: '10px 0',
+              transition: 'color 0.3s', borderBottom: '1px solid var(--border)'
             }}
           >
             {link.name}

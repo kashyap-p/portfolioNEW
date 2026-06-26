@@ -1,4 +1,4 @@
-import { useRef, useCallback } from 'react'
+import { useRef, useCallback, useState } from 'react'
 import { useInView } from 'react-intersection-observer'
 import { FiExternalLink, FiGithub, FiArrowRight } from 'react-icons/fi'
 
@@ -28,39 +28,39 @@ const projects = [
     featured: true,
   },
   {
-    title: 'Social Media Analytics',
-    desc: 'Cross-platform social media analytics tool with sentiment analysis, engagement prediction, and automated reporting.',
-    tech: ['React', 'FastAPI', 'MongoDB', 'Redis', 'Docker'],
-    color: '#ec4899',
-    gradient: 'linear-gradient(135deg, #ec4899, #db2777)',
-    stats: { stars: 67, forks: 18 },
-    featured: false,
-  },
-  {
-    title: 'Real-time Collaboration Tool',
-    desc: 'A collaborative workspace with real-time document editing, video conferencing, and project management features.',
-    tech: ['React', 'Socket.io', 'Node.js', 'WebRTC', 'PostgreSQL'],
-    color: '#22d3ee',
-    gradient: 'linear-gradient(135deg, #22d3ee, #06b6d4)',
-    stats: { stars: 156, forks: 42 },
+    title: 'IMDB Clone',
+    desc: 'A movie database clone that lets you browse and search through film listings. Built with vanilla JavaScript, HTML and CSS.',
+    tech: ['JavaScript', 'CSS', 'HTML'],
+    color: '#f5c518',
+    gradient: 'linear-gradient(135deg, #f5c518, #e6b800)',
+    stats: { stars: 0, forks: 0 },
+    github: 'https://github.com/kashyap-p/IMDB_CLONE',
+    href: 'https://kashyap-p.github.io/IMDB_CLONE/',
+    image: '/images/imdb-clone.png',
     featured: true,
   },
   {
-    title: 'DevOps Pipeline Manager',
-    desc: 'CI/CD pipeline visualization and management tool with container orchestration and deployment monitoring.',
-    tech: ['Vue.js', 'Go', 'Kubernetes', 'Terraform', 'Grafana'],
-    color: '#f59e0b',
-    gradient: 'linear-gradient(135deg, #f59e0b, #d97706)',
-    stats: { stars: 94, forks: 28 },
+    title: 'Alarm Clock',
+    desc: 'A functional alarm clock built with CSS and JavaScript. Set alarms with custom times and enjoy a clean retro-inspired interface.',
+    tech: ['JavaScript', 'CSS', 'HTML'],
+    color: '#22d3ee',
+    gradient: 'linear-gradient(135deg, #22d3ee, #06b6d4)',
+    stats: { stars: 0, forks: 0 },
+    github: 'https://github.com/kashyap-p/ALARM-CLOCK',
+    href: 'https://kashyap-p.github.io/ALARM-CLOCK/',
+    image: '/images/alarm-clock.png',
     featured: false,
   },
   {
-    title: 'Healthcare Patient Portal',
-    desc: 'HIPAA-compliant patient management system with telehealth capabilities, appointment scheduling, and medical records.',
-    tech: ['React', 'NestJS', 'PostgreSQL', 'Redis', 'Azure'],
+    title: 'React Task Management',
+    desc: 'A task management app built with React featuring priority-based lists, task categorization, and a clean responsive UI.',
+    tech: ['React', 'CSS', 'JavaScript'],
     color: '#10b981',
     gradient: 'linear-gradient(135deg, #10b981, #059669)',
-    stats: { stars: 73, forks: 15 },
+    stats: { stars: 0, forks: 0 },
+    github: 'https://github.com/kashyap-p/React-task-management',
+    href: '',
+    image: '',
     featured: false,
   },
 ]
@@ -68,6 +68,7 @@ const projects = [
 function ProjectCard({ project, index, inView }) {
   const cardRef = useRef()
   const acronymRef = useRef()
+  const [imgError, setImgError] = useState(false)
 
   const handleEnter = useCallback(() => {
     const el = cardRef.current
@@ -81,7 +82,7 @@ function ProjectCard({ project, index, inView }) {
   const handleLeave = useCallback(() => {
     const el = cardRef.current
     if (!el) return
-    el.style.borderColor = 'rgba(255,255,255,0.06)'
+    el.style.borderColor = 'var(--border)'
     el.style.transform = inView ? 'translateY(0)' : 'translateY(40px)'
     el.style.boxShadow = 'none'
     if (acronymRef.current) acronymRef.current.style.transform = 'scale(1)'
@@ -93,8 +94,8 @@ function ProjectCard({ project, index, inView }) {
       onMouseLeave={handleLeave}
       style={{
         borderRadius: 16,
-        background: 'rgba(255,255,255,0.03)',
-        border: '1px solid rgba(255,255,255,0.06)',
+        background: 'var(--bg-card)',
+        border: '1px solid var(--border)',
         overflow: 'hidden',
         transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)',
         transform: inView ? 'translateY(0)' : 'translateY(40px)',
@@ -135,15 +136,14 @@ function ProjectCard({ project, index, inView }) {
         display: 'flex', alignItems: 'center', justifyContent: 'center',
         overflow: 'hidden'
       }}>
-        {project.image ? (
+        {project.image && !imgError ? (
           <img src={project.image} alt={project.title}
-            ref={acronymRef}
             style={{
               width: '100%', height: '100%', objectFit: 'cover',
               transform: 'scale(1)',
               transition: 'transform 0.4s ease'
             }}
-            onError={e => { e.target.style.display = 'none' }}
+            onError={() => setImgError(true)}
           />
         ) : (
           <>
@@ -168,12 +168,12 @@ function ProjectCard({ project, index, inView }) {
         <h3 style={{
           fontFamily: "'Space Grotesk', sans-serif",
           fontSize: '1.2rem', fontWeight: 700,
-          color: '#e4e4e7', marginBottom: 8
+          color: 'var(--color-text)', marginBottom: 8
         }}>
           {project.title}
         </h3>
         <p style={{
-          fontSize: '0.88rem', color: '#a1a1aa',
+          fontSize: '0.88rem', color: 'var(--color-text-secondary)',
           lineHeight: 1.6, marginBottom: '1rem'
         }}>
           {project.desc}
@@ -200,12 +200,12 @@ function ProjectCard({ project, index, inView }) {
         <div style={{
           display: 'flex', justifyContent: 'space-between',
           alignItems: 'center', paddingTop: '1rem',
-          borderTop: '1px solid rgba(255,255,255,0.06)'
+          borderTop: '1px solid var(--border)'
         }}>
           <div style={{ display: 'flex', gap: '1rem' }}>
             <span style={{
               display: 'flex', alignItems: 'center', gap: 4,
-              fontSize: '0.8rem', color: '#71717a'
+              fontSize: '0.8rem', color: 'var(--color-text-tertiary)'
             }}>
               <FiGithub size={13} /> {project.stats.forks}
             </span>
@@ -215,9 +215,9 @@ function ProjectCard({ project, index, inView }) {
           }}>
             <a href={project.github || '#'} target="_blank" rel="noopener noreferrer" style={{
               padding: '8px 14px', borderRadius: 8,
-              background: 'rgba(255,255,255,0.05)',
-              border: '1px solid rgba(255,255,255,0.1)',
-              color: '#a1a1aa', cursor: 'pointer',
+              background: 'var(--bg-card)',
+              border: '1px solid var(--border)',
+              color: 'var(--color-text-secondary)', cursor: 'pointer',
               display: 'flex', alignItems: 'center', gap: 4,
               fontSize: '0.8rem', transition: 'all 0.3s', textDecoration: 'none'
             }}
@@ -226,8 +226,8 @@ function ProjectCard({ project, index, inView }) {
               e.currentTarget.style.color = project.color
             }}
             onMouseLeave={e => {
-              e.currentTarget.style.borderColor = 'rgba(255,255,255,0.1)'
-              e.currentTarget.style.color = '#a1a1aa'
+              e.currentTarget.style.borderColor = 'var(--border)'
+              e.currentTarget.style.color = 'var(--color-text-secondary)'
             }}
             >
               <FiGithub size={14} />
@@ -266,7 +266,7 @@ export default function Projects() {
   return (
     <section id="projects" ref={ref} style={{
       padding: '120px 0', position: 'relative',
-      background: 'linear-gradient(180deg, #0a0a0f 0%, #111118 50%, #0a0a0f 100%)'
+      background: 'var(--gradient-section-alt)'
     }}>
       <div className="section-container">
         <div style={{

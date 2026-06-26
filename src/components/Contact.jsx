@@ -47,9 +47,9 @@ export default function Contact() {
   const inputStyle = useCallback((field) => ({
     width: '100%', padding: '14px 18px',
     borderRadius: 12,
-    background: 'rgba(255,255,255,0.03)',
-    border: `1px solid ${focused === field ? '#6366f1' : 'rgba(255,255,255,0.08)'}`,
-    color: '#e4e4e7', fontSize: '0.95rem',
+    background: 'var(--bg-input)',
+    border: `1px solid ${focused === field ? '#6366f1' : 'var(--border)'}`,
+    color: 'var(--color-text)', fontSize: '0.95rem',
     fontFamily: "'Inter', sans-serif",
     outline: 'none',
     transition: 'all 0.3s',
@@ -59,7 +59,7 @@ export default function Contact() {
   return (
     <section id="contact" ref={ref} style={{
       padding: '120px 0', position: 'relative',
-      background: 'linear-gradient(180deg, #0a0a0f 0%, #111118 100%)'
+      background: 'var(--gradient-section)'
     }}>
       {/* Glow effect */}
       <div style={{
@@ -97,12 +97,12 @@ export default function Contact() {
             <h3 style={{
               fontFamily: "'Space Grotesk', sans-serif",
               fontSize: '1.3rem', fontWeight: 600,
-              color: '#e4e4e7', marginBottom: '1.5rem'
+              color: 'var(--color-text)', marginBottom: '1.5rem'
             }}>
               Let's talk about everything
             </h3>
             <p style={{
-              color: '#a1a1aa', fontSize: '0.95rem',
+              color: 'var(--color-text-secondary)', fontSize: '0.95rem',
               lineHeight: 1.7, marginBottom: '2rem'
             }}>
               I'm always open to new opportunities and interesting projects.
@@ -122,8 +122,8 @@ export default function Contact() {
                   <FiMail size={18} color="#6366f1" />
                 </div>
                 <div>
-                  <div style={{ fontSize: '0.75rem', color: '#71717a', marginBottom: 2 }}>Email</div>
-                  <div style={{ color: '#e4e4e7', fontSize: '0.9rem' }}>kashyappatel326@gmail.com</div>
+                  <div style={{ fontSize: '0.75rem', color: 'var(--color-text-tertiary)', marginBottom: 2 }}>Email</div>
+                  <div style={{ color: 'var(--color-text)', fontSize: '0.9rem' }}>kashyappatel326@gmail.com</div>
                 </div>
               </div>
               <div style={{
@@ -137,8 +137,8 @@ export default function Contact() {
                   <FiMapPin size={18} color="#a855f7" />
                 </div>
                 <div>
-                  <div style={{ fontSize: '0.75rem', color: '#71717a', marginBottom: 2 }}>Location</div>
-                  <div style={{ color: '#e4e4e7', fontSize: '0.9rem' }}>Ahmedabad</div>
+                  <div style={{ fontSize: '0.75rem', color: 'var(--color-text-tertiary)', marginBottom: 2 }}>Location</div>
+                  <div style={{ color: 'var(--color-text)', fontSize: '0.9rem' }}>Ahmedabad</div>
                 </div>
               </div>
             </div>
@@ -148,10 +148,10 @@ export default function Contact() {
               {socialLinks.map(({ icon: Icon, href, label }) => (
                 <a key={label} href={href} title={label} style={{
                   width: 44, height: 44, borderRadius: 12,
-                  background: 'rgba(255,255,255,0.03)',
-                  border: '1px solid rgba(255,255,255,0.08)',
+                  background: 'var(--bg-card)',
+                  border: '1px solid var(--border)',
                   display: 'flex', alignItems: 'center', justifyContent: 'center',
-                  color: '#a1a1aa', transition: 'all 0.3s', cursor: 'pointer'
+                  color: 'var(--color-text-secondary)', transition: 'all 0.3s', cursor: 'pointer'
                 }}
                 onMouseEnter={e => {
                   e.currentTarget.style.borderColor = '#6366f1'
@@ -159,9 +159,9 @@ export default function Contact() {
                   e.currentTarget.style.background = 'rgba(99,102,241,0.1)'
                 }}
                 onMouseLeave={e => {
-                  e.currentTarget.style.borderColor = 'rgba(255,255,255,0.08)'
-                  e.currentTarget.style.color = '#a1a1aa'
-                  e.currentTarget.style.background = 'rgba(255,255,255,0.03)'
+                  e.currentTarget.style.borderColor = 'var(--border)'
+                  e.currentTarget.style.color = 'var(--color-text-secondary)'
+                  e.currentTarget.style.background = 'var(--bg-card)'
                 }}
                 >
                   <Icon size={18} />

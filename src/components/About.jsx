@@ -46,14 +46,17 @@ function AboutScene() {
 }
 
 const techStack = [
-  'React', 'Node.js', 'TypeScript', 'Python',
-  'PostgreSQL', 'AWS', 'Docker', 'GraphQL'
+  'JavaScript (ES6+)', 'React.js', 'Context API', 'Redux',
+  'HTML5', 'CSS Modules', 'Tailwind CSS',
+  'Node.js', 'Express.js', 'RESTful APIs', 'MongoDB', 'SQL'
 ]
 
 const timeline = [
-  { year: '2024', role: 'Senior Developer', company: 'Tech Corp', desc: 'Leading full-stack development of enterprise SaaS platform' },
-  { year: '2022', role: 'Full Stack Developer', company: 'StartupXYZ', desc: 'Built and scaled core product from 0 to 50k users' },
-  { year: '2021', role: 'Frontend Developer', company: 'Digital Agency', desc: 'Developed performant web apps for Fortune 500 clients' },
+  { year: 'Oct 2024 — Present', role: 'Design Engineer', company: 'Orbis Elevator Co. Ltd.', desc: 'Designing and engineering precision elevator components using SOLID WORKS and CAD tools, ensuring compliance with IS/ISO safety standards.' },
+  { year: 'Aug 2023 — Sep 2024', role: 'Design Engineer', company: 'LOTUS ENGINEERING', desc: 'Designed sheet metal parts for printing machines and industrial controllers. Reduced production time and material costs by 30% through optimized manufacturability. Created 2D/3D CAD models and fabrication drawings using SolidWorks and AutoCAD.' },
+  { year: 'Jan 2023 — Present', role: 'Full Stack Developer', company: 'Freelance / Independent', desc: 'Developed and deployed Wanderlust, a full-stack Airbnb clone (Node.js, Express.js, MongoDB). Built a React Task Manager SPA with Context API and drag-and-drop, improving efficiency by 15%. Created Hospital API and Placement Cell Web App.' },
+  { year: 'Jan 2019 — Apr 2023', role: 'Design Engineer', company: 'HVAX Technologies', desc: 'Designed customized Air Handling Units (AHUs) and pharmaceutical equipment for HVAC/cleanroom requirements. Created 2D fabrication drawings and 3D models using AutoCAD and SolidWorks. Handled export packaging and third-party inspections for international compliance.' },
+  { year: 'Jan 2020 — Apr 2023', role: 'Export Executive & Production Supervisor', company: 'HVAX Technologies', desc: 'Managed export documentation ensuring compliance with international trade regulations. Coordinated timely global shipments and developed strong stakeholder relationships to facilitate smooth trade operations.' },
 ]
 
 export default function About() {
@@ -62,7 +65,7 @@ export default function About() {
   return (
     <section id="about" ref={ref} style={{
       padding: '120px 0', position: 'relative',
-      background: 'linear-gradient(180deg, #0a0a0f 0%, #111118 100%)'
+      background: 'var(--gradient-section)'
     }}>
       <div className="section-container">
         <div style={{
@@ -72,8 +75,8 @@ export default function About() {
           {/* 3D Side */}
           <div style={{
             height: 400, borderRadius: 20,
-            background: 'rgba(255,255,255,0.02)',
-            border: '1px solid rgba(255,255,255,0.06)',
+            background: 'var(--bg-card)',
+            border: '1px solid var(--border)',
             overflow: 'hidden',
             opacity: inView ? 1 : 0,
             transform: inView ? 'translateX(0)' : 'translateX(-40px)',
@@ -95,12 +98,10 @@ export default function About() {
             <div className="glow-line" />
             <h2 className="section-title">About Me</h2>
             <p style={{
-              color: '#a1a1aa', fontSize: '1.05rem',
+              color: 'var(--color-text-secondary)', fontSize: '1.05rem',
               lineHeight: 1.8, marginBottom: '2rem'
             }}>
-              I'm a passionate full-stack developer with expertise in building
-              modern web applications. I love turning complex problems into
-              simple, beautiful, and intuitive solutions.
+              Full Stack Engineer specializing in the MERN ecosystem with a strong background in engineering design and problem-solving. Proficient in JavaScript (ES6+), React.js, Node.js, Express.js, MongoDB, and SQL. I love building clean, performant applications and turning complex problems into simple solutions.
             </p>
 
             {/* Tech Tags */}
@@ -122,12 +123,44 @@ export default function About() {
           </div>
         </div>
 
+        {/* Education */}
+        <div style={{ marginTop: '3rem' }}>
+          <h3 style={{
+            fontFamily: "'Space Grotesk', sans-serif",
+            fontSize: '1.3rem', fontWeight: 600,
+            marginBottom: '2rem', color: 'var(--color-text)'
+          }}>
+            Education
+          </h3>
+          <div style={{
+            display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+            gap: '1rem'
+          }}>
+            {[
+              { school: 'Coding Ninjas', degree: 'MERN Stack', year: '' },
+              { school: 'University of Mumbai', degree: 'B.E. in Mechanical Engineering', year: '' },
+            ].map((edu, i) => (
+              <div key={i} style={{
+                padding: '20px 24px', borderRadius: 12,
+                background: 'var(--bg-card)',
+                border: '1px solid var(--border)',
+                opacity: inView ? 1 : 0,
+                transform: inView ? 'translateY(0)' : 'translateY(20px)',
+                transition: `all 0.6s ease ${0.1 + i * 0.15}s`
+              }}>
+                <div style={{ fontSize: '0.8rem', color: '#6366f1', fontFamily: "'JetBrains Mono', monospace", marginBottom: 4 }}>{edu.degree}</div>
+                <div style={{ fontWeight: 600, color: 'var(--color-text)', marginBottom: 2 }}>{edu.school}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+
         {/* Timeline */}
         <div style={{ marginTop: '4rem' }}>
           <h3 style={{
             fontFamily: "'Space Grotesk', sans-serif",
             fontSize: '1.3rem', fontWeight: 600,
-            marginBottom: '2rem', color: '#e4e4e7'
+            marginBottom: '2rem', color: 'var(--color-text)'
           }}>
             Experience Timeline
           </h3>
@@ -147,21 +180,21 @@ export default function About() {
                   position: 'absolute', left: '-2rem', top: '6px',
                   width: 14, height: 14, borderRadius: '50%',
                   background: 'linear-gradient(135deg, #6366f1, #a855f7)',
-                  border: '2px solid #0a0a0f'
+                  border: '2px solid var(--color-bg)'
                 }} />
                 <div style={{
                   padding: '20px 24px', borderRadius: 12,
-                  background: 'rgba(255,255,255,0.03)',
-                  border: '1px solid rgba(255,255,255,0.06)',
+                  background: 'var(--bg-card)',
+                  border: '1px solid var(--border)',
                   transition: 'all 0.3s'
                 }}
                 onMouseEnter={e => {
                   e.currentTarget.style.borderColor = 'rgba(99,102,241,0.3)'
-                  e.currentTarget.style.background = 'rgba(99,102,241,0.05)'
+                  e.currentTarget.style.background = 'var(--bg-card-hover)'
                 }}
                 onMouseLeave={e => {
-                  e.currentTarget.style.borderColor = 'rgba(255,255,255,0.06)'
-                  e.currentTarget.style.background = 'rgba(255,255,255,0.03)'
+                  e.currentTarget.style.borderColor = 'var(--border)'
+                  e.currentTarget.style.background = 'var(--bg-card)'
                 }}
                 >
                   <div style={{
@@ -174,14 +207,14 @@ export default function About() {
                     }}>
                       {item.year}
                     </span>
-                    <span style={{ fontSize: '0.8rem', color: '#71717a' }}>
+                    <span style={{ fontSize: '0.8rem', color: 'var(--color-text-tertiary)' }}>
                       {item.company}
                     </span>
                   </div>
-                  <div style={{ fontWeight: 600, marginBottom: 4, color: '#e4e4e7' }}>
+                  <div style={{ fontWeight: 600, marginBottom: 4, color: 'var(--color-text)' }}>
                     {item.role}
                   </div>
-                  <div style={{ fontSize: '0.9rem', color: '#a1a1aa' }}>
+                  <div style={{ fontSize: '0.9rem', color: 'var(--color-text-secondary)' }}>
                     {item.desc}
                   </div>
                 </div>

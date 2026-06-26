@@ -16,7 +16,7 @@ export default function Loader() {
   return (
     <div style={{
       position: 'fixed', inset: 0, zIndex: 9999,
-      background: '#0a0a0f',
+      background: 'var(--color-bg)',
       display: 'flex', flexDirection: 'column',
       alignItems: 'center', justifyContent: 'center',
       fontFamily: "'Space Grotesk', sans-serif"
@@ -56,7 +56,7 @@ export default function Loader() {
         Kashyap
       </div>
       <div style={{
-        fontSize: '0.85rem', color: '#71717a',
+        fontSize: '0.85rem', color: 'var(--color-text-tertiary)',
         fontFamily: "'JetBrains Mono', monospace"
       }}>
         Initializing creative workspace...

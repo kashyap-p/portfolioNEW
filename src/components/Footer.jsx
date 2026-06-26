@@ -4,8 +4,8 @@ export default function Footer() {
   return (
     <footer style={{
       padding: '40px 0',
-      borderTop: '1px solid rgba(255,255,255,0.06)',
-      background: '#0a0a0f'
+      borderTop: '1px solid var(--border)',
+      background: 'var(--color-bg)'
     }}>
       <div className="section-container">
         <div style={{
@@ -14,7 +14,7 @@ export default function Footer() {
         }}>
           <div style={{
             display: 'flex', alignItems: 'center', gap: 6,
-            color: '#71717a', fontSize: '0.85rem'
+            color: 'var(--color-text-tertiary)', fontSize: '0.85rem'
           }}>
             Made with <FiHeart size={14} color="#ec4899" /> by Kashyap
           </div>
@@ -28,18 +28,18 @@ export default function Footer() {
             ].map(({ icon: Icon, href }, i) => (
               <a key={i} href={href} style={{
                 width: 36, height: 36, borderRadius: 8,
-                background: 'rgba(255,255,255,0.03)',
-                border: '1px solid rgba(255,255,255,0.06)',
+                background: 'var(--bg-card)',
+                border: '1px solid var(--border)',
                 display: 'flex', alignItems: 'center', justifyContent: 'center',
-                color: '#71717a', transition: 'all 0.3s', cursor: 'pointer'
+                color: 'var(--color-text-tertiary)', transition: 'all 0.3s', cursor: 'pointer'
               }}
               onMouseEnter={e => {
                 e.currentTarget.style.color = '#6366f1'
                 e.currentTarget.style.borderColor = 'rgba(99,102,241,0.3)'
               }}
               onMouseLeave={e => {
-                e.currentTarget.style.color = '#71717a'
-                e.currentTarget.style.borderColor = 'rgba(255,255,255,0.06)'
+                e.currentTarget.style.color = 'var(--color-text-tertiary)'
+                e.currentTarget.style.borderColor = 'var(--border)'
               }}
               >
                 <Icon size={16} />
@@ -48,7 +48,7 @@ export default function Footer() {
           </div>
 
           <div style={{
-            fontSize: '0.8rem', color: '#52525b',
+            fontSize: '0.8rem', color: 'var(--color-text-tertiary)',
             fontFamily: "'JetBrains Mono', monospace"
           }}>
             &copy; 2026 All rights reserved
