@@ -1,219 +1,201 @@
-# 3D Portfolio — Kashyap Patel
+<p align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=2&height=200&section=header&text=Kashyap%20Patel&fontSize=60&fontAlignY=35&desc=Full-Stack%20Developer%20%7C%20Portfolio&descAlignY=52&fontColor=fff">
+    <img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=2&height=200&section=header&text=Kashyap%20Patel&fontSize=60&fontAlignY=35&desc=Full-Stack%20Developer%20%7C%20Portfolio&descAlignY=52&fontColor=111">
+  </picture>
+</p>
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+<p align="center">
+  <a href="https://kashyap-p.github.io/portfolioNEW/"><img src="https://img.shields.io/badge/LIVE%20DEMO-8B5CF6?style=for-the-badge&logo=vercel&logoColor=white" alt="Live Demo" /></a>
+  <a href="https://github.com/kashyap-p/portfolioNEW"><img src="https://img.shields.io/badge/REPO-18181B?style=for-the-badge&logo=github&logoColor=white" alt="GitHub" /></a>
+  <a href="https://www.linkedin.com/in/kashyap-p"><img src="https://img.shields.io/badge/LINKEDIN-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn" /></a>
+</p>
 
-Interactive 3D portfolio website built with **React 18**, **Three.js** (React Three Fiber), and **Vite**. Features a particle field hero, floating 3D geometries, dark/light theme toggle, scroll-triggered animations, and a contact form powered by Web3Forms.
+<div align="center">
+  <img src="https://img.shields.io/badge/React-20232A?style=flat-square&logo=react&logoColor=61DAFB" />
+  <img src="https://img.shields.io/badge/Three.js-000000?style=flat-square&logo=three.js&logoColor=white" />
+  <img src="https://img.shields.io/badge/Vite-646CFF?style=flat-square&logo=vite&logoColor=white" />
+  <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black" />
+  <img src="https://img.shields.io/badge/Node.js-339933?style=flat-square&logo=node.js&logoColor=white" />
+  <img src="https://img.shields.io/badge/MongoDB-47A248?style=flat-square&logo=mongodb&logoColor=white" />
+  <br/>
+  <img src="https://img.shields.io/badge/build-passing-22C55E?style=flat-square" />
+  <img src="https://img.shields.io/badge/React%2018-61DAFB?style=flat-square" />
+  <img src="https://img.shields.io/badge/Three.js%20r170-000000?style=flat-square" />
+  <img src="https://img.shields.io/badge/license-MIT-8B5CF6?style=flat-square" />
+</div>
 
-## Live Demo
-
-**[kashyap-p.github.io/portfolioNEW](https://kashyap-p.github.io/portfolioNEW/)**
-
----
-
-## Features
-
-### 3D & Visual
-- **Particle Field** — 800 animated color-graded particles in the hero background, rotating slowly for a cosmic effect
-- **Floating Geometries** — Wireframe icosahedron, octahedron, torus, and torus knot with bloom-style glow, each rotating independently at different speeds
-- **Distorted Avatar Sphere** — Hover-reactive 3D sphere with `MeshDistortMaterial` in the About section, continuously rotating
-- **Skill Orbs** — Rotating dodecahedrons representing skill categories, rendered with wireframe overlays
-- **Stars Background** — 1500 twinkling stars via `@react-three/drei` `<Stars />`
-
-### Theme
-- **Dark / Light Mode** — Toggle via Sun/Moon button in the navbar, persisted to `localStorage`, CSS variables drive all colors
-
-### UX & Animations
-- **Loading Screen** — Animated SVG progress ring with auto-dismiss after 2.2s
-- **Scroll Animations** — Sections fade and slide in using `react-intersection-observer` with staggered delays
-- **Animated Skill Bars** — Progress bars animate from 0 to their percentage on scroll into view
-- **Project Cards** — Hover lift with colored glow borders and shadow
-- **Timeline** — Vertical gradient line with dot markers and staggered slide-in entries
-- **Responsive** — Mobile hamburger menu, fluid typography via `clamp()`, CSS Grid adapting to viewport
-
-### Content Sections
-- **Hero** — Gradient headline, CTA buttons, stats bar (5+ years, 50+ projects, 30+ clients)
-- **About** — Bio, 12 tech stack tags, Education cards (Coding Ninjas, University of Mumbai), Experience Timeline with 5 real roles
-- **Skills** — 3 categories (Frontend, Backend, DevOps & Tools) with progress bars and 3D floating orbs
-- **Projects** — 5 real GitHub projects with live screenshots, GitHub links, live demo links, tech tags, and auto-generated acronym fallback when screenshots fail
-- **Contact** — Working form powered by Web3Forms, social links (GitHub, LinkedIn), email and location info
-- **Footer** — Copyright and social links
-
-### Performance
-- **Code Splitting** — Three.js (~687 KB) and R3F (~278 KB) split into separate chunks from app code (~69 KB)
-- **DPR Capped** — Device pixel ratio capped to `[1, 1.5]` for GPU-friendly rendering
-- **Memory Optimized** — `memo`, `useCallback`, `useMemo` on 3D components; `Float32Array` for particle buffer; `will-change` hints
-- **Error Boundaries** — Canvas crash falls back gracefully to gradient background without breaking the page
+<br/>
 
 ---
 
-## Tech Stack
+## ✦ Overview
 
-| Tool | Purpose |
-|------|---------|
-| [React 18](https://reactjs.org/) | UI framework with hooks and context API |
-| [Vite 5](https://vitejs.dev/) | Build tool and dev server with HMR |
-| [Three.js r170](https://threejs.org/) | 3D rendering engine |
-| [React Three Fiber](https://docs.pmnd.rs/react-three-fiber) | React renderer for Three.js |
-| [@react-three/drei](https://github.com/pmndrs/drei) | R3F helpers (Float, Stars, MeshDistortMaterial) |
-| [@react-three/postprocessing](https://github.com/pmndrs/react-postprocessing) | Bloom and post-processing effects |
-| [React Icons](https://react-icons.github.io/react-icons/) | Feather Icons and Simple Icons |
-| [react-intersection-observer](https://github.com/thebuilder/react-intersection-observer) | Scroll-triggered animations |
-| [Web3Forms](https://web3forms.com/) | Form-to-email API (no backend) |
+An interactive **3D portfolio** built with **React 18**, **Three.js** via **React Three Fiber**, and **Vite 5**. Features a dynamic particle field, floating geometries, dark/light theme, scroll-triggered animations, and a working contact form — all optimized for performance with code-splitting and error boundaries.
 
----
+<br/>
 
-## Project Structure
+<img src="https://github-readme-activity-graph.vercel.app/graph?username=kashyap-p&bg_color=0a0a0f&color=818cf8&line=6366f1&point=a855f7&area=true&hide_border=true&radius=8" width="100%" alt="Activity Graph" />
+
+<br/>
+
+## ✦ Features
+
+<table>
+  <tr>
+    <td width="50%">
+      <h3>🎨 3D & Visual</h3>
+      <ul>
+        <li>Animated particle field with color-graded stars</li>
+        <li>Floating wireframe geometries (icosahedron, octahedron, torus knot)</li>
+        <li>Distorted avatar sphere — hover-reactive in About section</li>
+        <li>Rotating dodecahedron skill orbs</li>
+        <li>Twinkling starfield background (1500 stars)</li>
+      </ul>
+    </td>
+    <td width="50%">
+      <h3>🌓 Theme & UX</h3>
+      <ul>
+        <li>Dark/light mode toggle persisted to <code>localStorage</code></li>
+        <li>Respects OS <code>prefers-color-scheme</code></li>
+        <li>CSS variable-driven theming (no hardcoded colors)</li>
+        <li>Animated loading screen with SVG progress ring</li>
+        <li>Scroll-triggered fade/slide animations</li>
+      </ul>
+    </td>
+  </tr>
+  <tr>
+    <td width="50%">
+      <h3>📱 Content</h3>
+      <ul>
+        <li>Project cards with live screenshots + acronym fallback</li>
+        <li>Experience timeline — 5 real roles with descriptions</li>
+        <li>Skill bars with animated progress on scroll</li>
+        <li>Working contact form via Web3Forms API</li>
+        <li>Responsive mobile hamburger menu</li>
+      </ul>
+    </td>
+    <td width="50%">
+      <h3>⚡ Performance</h3>
+      <ul>
+        <li>Code-splitting: Three.js ~687KB, R3F ~278KB, app ~68KB</li>
+        <li>DPR capped [1, 1.5] for GPU-friendly rendering</li>
+        <li><code>memo</code>, <code>useCallback</code>, <code>useMemo</code> throughout</li>
+        <li><code>Float32Array</code> for particle buffers</li>
+        <li>Error boundaries for graceful Canvas crash recovery</li>
+      </ul>
+    </td>
+  </tr>
+</table>
+
+<br/>
+
+## ✦ Tech Stack
+
+<div align="center">
+
+| Category | Technologies |
+|:---------|:-------------|
+| **Core** | <img src="https://img.shields.io/badge/React-61DAFB?style=flat-square&logo=react" /> <img src="https://img.shields.io/badge/Vite-646CFF?style=flat-square&logo=vite" /> <img src="https://img.shields.io/badge/Three.js-000000?style=flat-square&logo=three.js" /> |
+| **3D** | <img src="https://img.shields.io/badge/R3F-000000?style=flat-square&logo=react" /> <img src="https://img.shields.io/badge/Drei-000000?style=flat-square&logo=react" /> |
+| **Styling** | <img src="https://img.shields.io/badge/CSS3-1572B6?style=flat-square&logo=css3" /> <img src="https://img.shields.io/badge/CSS_Variables-1572B6?style=flat-square&logo=css3" /> |
+| **Icons** | <img src="https://img.shields.io/badge/React_Icons-E91E63?style=flat-square&logo=react" /> |
+| **Forms** | <img src="https://img.shields.io/badge/Web3Forms-8B5CF6?style=flat-square" /> |
+| **Deploy** | <img src="https://img.shields.io/badge/GitHub_Pages-18181B?style=flat-square&logo=github" /> |
+
+</div>
+
+<br/>
+
+## ✦ Project Structure
 
 ```
 portfolio/
-├── index.html                     # Entry HTML
+├── index.html
+├── vite.config.js
 ├── package.json
-├── vite.config.js                 # Vite config, manual chunks
-├── LICENSE
+├── .gitignore
 ├── public/
 │   ├── favicon.svg
-│   └── images/                    # Project screenshots
+│   ├── _redirects
+│   └── images/
 │       ├── todo-app.png
 │       ├── tech-news.png
 │       ├── imdb-clone.png
-│       ├── alarm-clock.png
-│       └── wanderlust.png
+│       └── alarm-clock.png
 └── src/
-    ├── main.jsx                   # React entry point
-    ├── App.jsx                    # Root component, section layout
+    ├── main.jsx
+    ├── App.jsx
     ├── context/
-    │   └── ThemeContext.jsx        # Theme provider with localStorage
+    │   └── ThemeContext.jsx
     ├── styles/
-    │   └── global.css             # CSS variables (dark + light), base styles
+    │   └── global.css
     └── components/
-        ├── Navbar.jsx             # Sticky nav, mobile menu, theme toggle
-        ├── Hero.jsx               # 3D scene, headline, CTAs, stats
-        ├── About.jsx              # Bio, tech tags, education, timeline
-        ├── Skills.jsx             # 3D orbs + progress bars
-        ├── Projects.jsx           # Project cards with screenshots
-        ├── Contact.jsx            # Contact form (Web3Forms)
-        ├── Footer.jsx             # Footer with socials
-        ├── Loader.jsx             # Animated loading screen
-        └── ErrorBoundary.jsx      # Canvas crash fallback
+        ├── Navbar.jsx        # Sticky nav, mobile menu, theme toggle
+        ├── Hero.jsx          # 3D scene, headline, CTAs, stats
+        ├── About.jsx         # Bio, tech tags, education, timeline
+        ├── Skills.jsx        # 3D orbs + progress bars
+        ├── Projects.jsx      # Project cards with screenshots
+        ├── Contact.jsx       # Contact form (Web3Forms)
+        ├── Footer.jsx
+        ├── Loader.jsx        # Animated loading screen
+        └── ErrorBoundary.jsx # Canvas crash fallback
 ```
 
----
+<br/>
 
-## Getting Started
-
-### Prerequisites
-
-- **Node.js 18+**
-- npm or yarn
-
-### Install
+## ✦ Quick Start
 
 ```bash
+# Clone the repo
 git clone https://github.com/kashyap-p/portfolioNEW.git
-cd portfolio
+cd portfolioNEW
+
+# Install dependencies
 npm install
-```
 
-### Run Development Server
-
-```bash
+# Start dev server at http://localhost:5173
 npm run dev
-```
 
-Opens at **http://localhost:5173** with hot module replacement.
-
-### Build for Production
-
-```bash
+# Build for production
 npm run build
 ```
 
-Output goes to `dist/`. Serve with any static hosting.
+<br/>
 
-### Preview Production Build
-
-```bash
-npm run preview
-```
-
----
-
-## Available Scripts
-
-| Script | Description |
-|--------|-------------|
-| `npm run dev` | Start Vite dev server |
-| `npm run build` | Build for production |
-| `npm run preview` | Preview production build locally |
-| `npm run predeploy` | Build before deploy (for gh-pages) |
-| `npm run deploy` | Deploy to GitHub Pages via gh-pages |
-
----
-
-## Customization
-
-### Content
+## ✦ Customization
 
 | What | Where |
-|------|-------|
-| Projects | Edit the `projects` array in `src/components/Projects.jsx` |
-| Skills | Edit `skillCategories` in `src/components/Skills.jsx` |
-| About bio & timeline | Edit `timeline` array and text in `src/components/About.jsx` |
-| Hero headline & stats | Edit `Hero.jsx` (Stats component and headline text) |
-| Social links | Edit `socialLinks` in `src/components/Contact.jsx` and `Footer.jsx` |
-| Contact email | Edit the email address in `src/components/Contact.jsx` |
+|:-----|:------|
+| Projects | `projects` array in `src/components/Projects.jsx` |
+| Skills | `skillCategories` in `src/components/Skills.jsx` |
+| About bio & timeline | `timeline` array in `src/components/About.jsx` |
+| Hero headline & stats | `Stats` component in `src/components/Hero.jsx` |
+| Social links | `socialLinks` in `Contact.jsx` and `Footer.jsx` |
+| Theme colors | CSS variables in `src/styles/global.css` (`:root` / `[data-theme="light"]`) |
+| Contact form | `access_key` in `Contact.jsx` — get yours at [web3forms.com](https://web3forms.com/) |
+| Particle count | `count` in `Hero.jsx` `ParticleField` |
 
-### Theme Colors
+<br/>
 
-Edit CSS variables in `src/styles/global.css`:
-
-```css
-/* Dark theme (default) */
-:root { ... }
-
-/* Light theme */
-[data-theme="light"] { ... }
-```
-
-Key variables: `--color-bg`, `--color-text`, `--color-text-secondary`, `--bg-card`, `--border`
-
-### Contact Form
-
-Replace the Web3Forms `access_key` in `src/components/Contact.jsx:31` with your own key from [web3forms.com](https://web3forms.com/).
-
-### 3D Parameters
-
-- Particle count: `count` in `Hero.jsx` ParticleField component
-- Geometry positions/sizes: Edit args in `FloatingGeometry` and `RotatingTorusKnot`
-- Sphere distortion: `distort` and `speed` props on `MeshDistortMaterial` in `About.jsx`
-- DPR cap: `dpr={[1, 1.5]}` on Canvas in `Hero.jsx`
-
----
-
-## Deployment
-
-### GitHub Pages
+## ✦ Deployment
 
 ```bash
-npm run predeploy   # builds to dist/
-npm run deploy      # pushes dist/ to gh-pages branch
+npm run build          # builds to dist/
+# Push dist/ contents to gh-pages branch at repository root
 ```
 
-Then enable GitHub Pages in repo **Settings → Pages** with **gh-pages** branch and `/ (root)` folder.
+Enable **GitHub Pages** in repo Settings → Pages → branch `gh-pages` → `/ (root)`.
 
-### Manual Deployment
-
-```bash
-npm run build
-# Upload dist/ to any static host
-```
+<br/>
 
 ---
 
-## License
-
-MIT — see [LICENSE](LICENSE).
-
----
-
-Built by [Kashyap Patel](https://github.com/kashyap-p)
+<p align="center">
+  <sub>Built from scratch with React, Three.js, and excessive amounts of coffee.</sub>
+  <br/>
+  <a href="https://kashyap-p.github.io/portfolioNEW/"><strong>kashyap-p.github.io/portfolioNEW</strong></a>
+  <br/>
+  <br/>
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=2&height=120&section=footer" width="100%" alt="Footer wave" />
+</p>
